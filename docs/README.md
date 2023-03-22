@@ -1,6 +1,11 @@
 ---
-title: 洒洒水
-author: 老吴
-date: '2023-03-22'
+home: true
+heroText: 老吴
+heroImageStyle:
+  {
+    maxHeight: "288px",
+    display: block,
+    borderRadius: "19% 81% 23% 77% / 44% 57% 43% 56%",
+    boxShadow: "0 15px 18px rgba(0,0,0,0.2)",
+  }
 ---
-# 个人播客-试试水
