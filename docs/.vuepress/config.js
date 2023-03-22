@@ -3,6 +3,7 @@ module.exports = {
   title: '个人播客',
   description: 'This is my personal blog',
   theme: 'reco',
+  base: '/laoWuLog/',
   locales: {
     '/': {
       lang: 'zh-CN'
