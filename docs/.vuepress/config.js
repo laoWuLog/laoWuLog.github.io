@@ -3,6 +3,8 @@ module.exports = {
   title: '个人播客',
   description: 'This is my personal blog',
   theme: 'reco',
+  lastUpdated: 'Last Updated', // string | boolean
+  smoothScroll: true,
   locales: {
     '/': {
       lang: 'zh-CN'
