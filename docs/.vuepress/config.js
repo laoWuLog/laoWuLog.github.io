@@ -33,8 +33,8 @@ module.exports = {
   ],
   themeConfig: {
     author: "老吴",
-    // logo: "./public/home.jpg",
-    authorAvatar: "./public/home.jpg",
+    logo: "https://raw.githubusercontent.com/laoWuLog/blogImage/main/img/home.jpg",
+    authorAvatar: "https://raw.githubusercontent.com/laoWuLog/blogImage/main/img/home.jpg",
     subSidebar: 'auto',
     type: "blog",
     nav: [
