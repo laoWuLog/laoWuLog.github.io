@@ -107,7 +107,8 @@ tags:
 
 ​		拉去test分支上代码到本地运行，页面显示正常。xshell再npm run build 构建的时候报错
 
-报错如下![image-20220420174556832](C:\Users\acer\AppData\Roaming\Typora\typora-user-images\image-20220420174556832.png)
+报错如下!
+![](https://fastly.jsdelivr.net/gh/laoWuLog/blogImage@main/img/image-20220420174556832.png)
 
 使用npm安装：`npm install postcss-px-to-viewport --save-dev`可以解决报错，但无法解决页面显示的问题。
 
@@ -173,7 +174,7 @@ vue中如果想将HTML的内容绑定到元素里面，可以使用 v-html的属
 
 首先看下图，在git提交、编辑、合并等过程中，如果没有将指令进行完就将git窗口关闭有时会出现这样的界面。
 
-![image-20220427150131021](C:\Users\acer\AppData\Roaming\Typora\typora-user-images\image-20220427150131021.png)
+![](https://fastly.jsdelivr.net/gh/laoWuLog/blogImage@main/img/image-20220427150131021.png)
 
 ### 原因分析
 
@@ -181,7 +182,7 @@ git在指令意外中断时，一般会有一个缓存的机制，它会记住�
 
 ### 解决办法
 
-<img src="C:\Users\acer\AppData\Roaming\Typora\typora-user-images\image-20220427150322954.png" alt="image-20220427150322954" style="zoom: 67%;" />
+![](https://fastly.jsdelivr.net/gh/laoWuLog/blogImage@main/img/image-20220427150322954.png)
 
 这个文件就是罪魁，只要将它删除即可解决。
 或者直接运行git指令
@@ -268,7 +269,7 @@ function convertCanvasToImage(canvas){
 
 ### 解决办法
 
-![image-20220622152447899](C:\Users\acer\AppData\Roaming\Typora\typora-user-images\image-20220622152451492.png)
+![](https://fastly.jsdelivr.net/gh/laoWuLog/blogImage@main/img/image-20220622152451492.png)
 
 
 
@@ -276,7 +277,7 @@ function convertCanvasToImage(canvas){
 
 
 
-![image-20220622152556947](C:\Users\acer\AppData\Roaming\Typora\typora-user-images\image-20220622152556947.png)
+![](https://fastly.jsdelivr.net/gh/laoWuLog/blogImage@main/img/image-20220622152556947.png)
 
 ## 问题8：git clone --mirror 和 git clone 的区别
 

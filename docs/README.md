@@ -1,6 +1,7 @@
 ---
 home: true
 heroText: 老吴
+# bgImage: "https://raw.githubusercontent.com/laoWuLog/blogImage/main/img/home.jpg"
 heroImageStyle:
   {
     maxHeight: "288px",
