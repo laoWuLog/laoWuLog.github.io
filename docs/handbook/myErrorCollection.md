@@ -280,17 +280,32 @@ function convertCanvasToImage(canvas){
 
 ## 问题8：git clone --mirror 和 git clone 的区别
 
+
+
 ### 解决办法
+
 git clone --mirror 和 git clone 的区别在于：
 
+
+
 git clone --mirror 会将远程仓库的所有分支、标签和提交都克隆到本地，并创建一个完全相同的镜像仓库，包括 Git 数据库中的所有对象。这种方式克隆的仓库不是一个普通的 Git 仓库，而是一个完全镜像了远程仓库的裸仓库。
+
 git clone 会将远程仓库的默认分支（通常是 master 分支）和所有历史提交克隆到本地，但不会包括远程仓库中的所有分支和标签。
+
 因此，git clone --mirror 适用于需要完全复制远程仓库的场景，例如备份、迁移、分布式协作等场景。
 
-使用 git config --unset remote.origin.mirror 的作用是取消远程仓库的镜像设置。如果你在使用 git clone --mirror 克隆了一个仓库，并将其作为镜像仓库使用，那么在推送修改时，你必须先将其配置为非镜像仓库，否则推送将失败。因此，使用 git config --unset remote.origin.mirror 可以取消镜像设置，以便你可以正常地推送修改。
+
+
+使用 ***git config --unset remote.origin.mirror*** 的作用是取消远程仓库的镜像设置。如果你在使用 git clone --mirror 克隆了一个仓库，并将其作为镜像仓库使用，那么在推送修改时，你必须先将其配置为非镜像仓库，否则推送将失败。因此，使用 git config --unset remote.origin.mirror 可以取消镜像设置，以便你可以正常地推送修改。
+
+
 
 如果你想避免使用 git config 命令，你可以在 git clone 命令中指定 --no-hardlinks 选项，这样将克隆一个普通的 Git 仓库，而不是镜像仓库，例如：
 
+
+
+```
 git clone --no-hardlinks <远程仓库地址> <本地目录>
+```
 
 这样克隆出来的仓库和普通仓库一样，可以直接推送修改。
