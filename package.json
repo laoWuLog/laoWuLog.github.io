@@ -6,7 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "blog": "vuepress dev docs",
-    "docs:build": "vuepress build docs"
+    "docs:build": "vuepress build docs --dest dist"
   },
   "author": "",
   "license": "ISC",
@@ -14,6 +14,6 @@
     "vuepress": "^1.9.9",
     "vuepress-plugin-cursor-effects": "^1.1.6",
     "vuepress-plugin-sakura": "^1.2.1",
-    "vuepress-theme-reco": "^1.5.7"
+    "vuepress-theme-reco": "^1.6.17"
   }
 }

@@ -1,5 +1,5 @@
 module.exports = {
-  dest: '../',
+  dest: './',
   title: '个人播客',
   description: 'This is my personal blog',
   theme: 'reco',
@@ -57,6 +57,7 @@ module.exports = {
         text: "Tag", // 默认文案 “标签”
       },
     },
+    sidebar: 'auto'
     // sidebar: [
     //   {
     //     title: '自我介绍',

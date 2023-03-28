@@ -6,6 +6,7 @@ categories:
 tags:
   - 部署
   - 图床
+sticky: 1
 ---
 
 ## 踩坑记录
