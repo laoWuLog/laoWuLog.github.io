@@ -14,11 +14,12 @@ module.exports = {
     [
       "sakura",
       {
-        num: 20, // 默认数量
+        num: 10, // 默认数量
         show: true, //  是否显示
         zIndex: -1, // 层级
         img: {
-          replace: false, // false 默认图 true 换图 需要填写httpUrl地址
+          replace: true, // false 默认图 true 换图 需要填写httpUrl地址
+          httpUrl: 'https://fastly.jsdelivr.net/gh/laoWuLog/blogImage@main/img/flame-g9c125b7fa_1920-removebg-preview.png'
         },
       },
     ],
