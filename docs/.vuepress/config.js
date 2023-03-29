@@ -39,6 +39,22 @@ module.exports = {
     subSidebar: 'auto',
     type: "blog",
     lastUpdated: '上次更新', // string | boolean
+     // 密钥
+     keyPage: {
+      keys: ['202cb962ac59075b964b07152d234b70'], // 1.3.0 版本后需要设置为密文
+      color: '#42b983', // 登录页动画球的颜色
+      lineColor: '#42b983' // 登录页动画线的颜色
+    },
+    huawei: true,
+    // 添加友链
+    friendLink: [
+      {
+        title: 'vuepress-theme-reco',
+        desc: 'A simple and beautiful vuepress Blog & Doc theme.',
+        logo: "https://vuepress-theme-reco.recoluan.com/icon_vuepress_reco.png",
+        link: 'https://vuepress-theme-reco.recoluan.com'
+      }
+    ],
     nav: [
       { text: '首页', link: '/' },
       {
