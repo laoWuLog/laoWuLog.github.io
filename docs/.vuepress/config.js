@@ -38,6 +38,7 @@ module.exports = {
     authorAvatar: "https://raw.githubusercontent.com/laoWuLog/blogImage/main/img/home.jpg",
     subSidebar: 'auto',
     type: "blog",
+    lastUpdated: '上次更新', // string | boolean
     nav: [
       { text: '首页', link: '/' },
       {
