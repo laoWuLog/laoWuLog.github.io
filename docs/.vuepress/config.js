@@ -30,7 +30,31 @@ module.exports = {
         shape: "star", // ['star' | 'circle'], // shape of the particle, default: 'star'
         zIndex: 999999999, // z-index property of the canvas, default: 999999999
       },
-    ]
+    ],
+    [
+      "dynamic-title", // 趣味标题插件
+      {
+        showIcon: "/favicon.ico",
+        showText: "(/≧▽≦/)咦！又好了！",
+        hideIcon: "/failure.ico",
+        hideText: "(●—●)喔哟，崩溃啦！",
+        recoverTime: 2000
+      }
+    ],
+    [
+      'ribbon', // 添加美丽的丝带！
+      {
+         size: 70, // width of the ribbon, default: 90
+         opacity: 0.1, // opacity of the ribbon, default: 0.3
+         zIndex: -1, // z-index property of the background, default: -1
+      },
+   ],
+    [
+      'medium-zoom', // 图片放大
+      {
+        margin: 16
+      },
+   ],
   ],
   themeConfig: {
     author: "老吴",
@@ -57,12 +81,13 @@ module.exports = {
     ],
     nav: [
       { text: '首页', link: '/' },
+      { text: '时间轴', link: '/timeline/', icon: 'reco-date' },
       {
         text: '老吴的博客',
         items: [
           { text: 'Github', link: 'https://github.com/laoWuLog/laoWuLog.github.io' }
         ]
-      }
+      },
     ],
     // 博客配置
     blogConfig: {

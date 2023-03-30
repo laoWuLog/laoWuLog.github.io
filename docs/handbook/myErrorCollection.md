@@ -6,7 +6,6 @@ categories:
 tags:
   - person
 ---
-
 # 										问题总结
 
 **前端开发流程**
@@ -103,22 +102,21 @@ tags:
 
 ## 问题1 ：test测试环境下，页面出现宽度的样式问题
 
-### 问题描述
+***问题描述***
 
 ​		拉去test分支上代码到本地运行，页面显示正常。xshell再npm run build 构建的时候报错
 
-报错如下!
-![](https://fastly.jsdelivr.net/gh/laoWuLog/blogImage@main/img/image-20220420174556832.png)
+报错如下![image-20220420174556832](C:%5CUsers%5Cacer%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20220420174556832.png)
 
 使用npm安装：`npm install postcss-px-to-viewport --save-dev`可以解决报错，但无法解决页面显示的问题。
 
-### 解决办法
+***解决办法***
 
 重新删除xshell上的文件，可以解决  
 
  rm -rf /home/opacWeb/tcc-opac-web/
 
-### 相关资源
+***相关资源***
 
 Gitlab地址：PC端：https://gitlab.tcsoft.info:8988/qiu/opac-new-edition
 
@@ -138,11 +136,11 @@ Gitlab地址：PC端：https://gitlab.tcsoft.info:8988/qiu/opac-new-edition
 
 ## 问题2：IP地址可以访问，域名不行（正式环境  页面提示： lnvalid Host header）
 
-### 出现该问的原因
+***出现该问的原因***
 
 因为新版的 webpack-dev-server 出于安全考虑，默认检查 hostname，如果hostname不是配置内的就不能访问。
 
-### 解决办法
+***解决办法***
 
 设置跳过host检查
 
@@ -152,11 +150,11 @@ Gitlab地址：PC端：https://gitlab.tcsoft.info:8988/qiu/opac-new-edition
 
 ## 问题3：使用v-html后内容未能解析成html
 
-### 问题描述
+***问题描述***
 
 vue中如果想将HTML的内容绑定到元素里面，可以使用 v-html的属性来进行设置。设置好以后发现页面上还是显示的是HTML源代码，未能解析成HTML显示
 
-### 解决办法
+***解决办法***
 
 导致问题的原因是接口返回的数据中未对html的内容做转义，导致页面输出了HTML的代码。
 
@@ -168,19 +166,19 @@ vue中如果想将HTML的内容绑定到元素里面，可以使用 v-html的属
 
 ## 问题4：git提交中E325: ATTENTION或E325
 
-### 问题描述
+***问题描述***
 
 使用 git commit --amend 后出现的问题 （可以修改commit的信息通过vim编辑器）
 
 首先看下图，在git提交、编辑、合并等过程中，如果没有将指令进行完就将git窗口关闭有时会出现这样的界面。
 
-![](https://fastly.jsdelivr.net/gh/laoWuLog/blogImage@main/img/image-20220427150131021.png)
+![image-20220427150131021](C:\Users\acer\AppData\Roaming\Typora\typora-user-images\image-20220427150131021.png)
 
-### 原因分析
+***原因分析***
 
 git在指令意外中断时，一般会有一个缓存的机制，它会记住上次中断的问题。在下次进入vim指令时，如果很重要的中断一般会提示你前面有某个操作不当或者没有结束，就出现了上面的窗口。如果不解决就会一直缠着你，以至于出现该窗口后再输入git指令的话一般就不显示在界面上了。看着像不能输入指令的样子
 
-### 解决办法
+***解决办法***
 
 ![](https://fastly.jsdelivr.net/gh/laoWuLog/blogImage@main/img/image-20220427150322954.png)
 
@@ -197,13 +195,13 @@ rm .git/.COMMIT_EDITMSG.swp
 
 ## 问题5：使用原生input让输入框聚焦
 
-### 问题描述
+***问题描述***
 
 Autofocus [processing](https://so.csdn.net/so/search?q=processing&spm=1001.2101.3001.7020) was blocked because a document already has a focused element. 	
 
 自动对焦处理已被阻止，因为文档已具有对焦元素。
 
-### 解决办法
+***解决办法***
 
 <a-input v-model="inputConten" class="input-content" placeholder="" id="wrapperInput"/>
 
@@ -223,16 +221,16 @@ this.$nextTick(() => {
 
 ## 问题6：解决qrcode生成的二维码安卓手机长按不识别问题
 
-### 问题描述
+***问题描述***
 
 qrcode生成的二维码，在苹果等手机上长按可识别，在华为手机上长按没有反应，截图保存下来长按又可以识别。
 
-### 问题原因
+***问题原因***
 
 `浏览器兼容问题`
 qrcode在页面生成二维码时，会生成一个[canvas](https://so.csdn.net/so/search?q=canvas&spm=1001.2101.3001.7020)标签和一个img标签。在电脑浏览器上调试的时候，发现生成二维码之后canvas标签是会自动隐藏的，然后展示img标签，我们看到和识别的其实是图片。但是在华为手机上生成的canvas是不会隐藏的，我们看到的是canvas，所以无法识别，截图却可以。
 
-### 解决办法
+***解决办法***
 
 手动将canvas隐藏，获取生成的链接拼到图片里面。
 
@@ -267,15 +265,9 @@ function convertCanvasToImage(canvas){
 
 ## 问题7：build打包后访问index.html页面报错（404）
 
-### 解决办法
+***解决办法***
 
 ![](https://fastly.jsdelivr.net/gh/laoWuLog/blogImage@main/img/image-20220622152451492.png)
-
-
-
-
-
-
 
 ![](https://fastly.jsdelivr.net/gh/laoWuLog/blogImage@main/img/image-20220622152556947.png)
 
@@ -283,7 +275,7 @@ function convertCanvasToImage(canvas){
 
 
 
-### 解决办法
+***解决办法***
 
 git clone --mirror 和 git clone 的区别在于：
 
@@ -310,3 +302,61 @@ git clone --no-hardlinks <远程仓库地址> <本地目录>
 ```
 
 这样克隆出来的仓库和普通仓库一样，可以直接推送修改。
+
+***注意点:*** 
+
+取消远程仓库的镜像设置后，使用 `pull`、`push`、`merge` 等命令并不会受到太大影响，这些命令在使用普通 Git 仓库和镜像仓库时使用方法基本一致。不过仍然需要注意以下几点：
+
+1. 拉取最新代码时需要使用远程跟踪分支的名称。在取消镜像设置后，镜像仓库中的远程分支会被转换成本地分支，因此需要使用远程跟踪分支的名称来拉取最新代码。例如，要拉取远程分支 `main` 的最新代码，需要使用 `git pull origin main` 命令。
+2. 推送本地修改时需要手动指定分支。在镜像仓库中，所有的远程分支都是只读的，不能直接向其推送修改。在取消镜像设置后，这些只读分支会被转换成可读可写的本地分支。因此，在推送本地修改时，需要手动指定分支。例如，要将本地分支 `new_branch` 推送到远程分支 `main`，需要使用 `git push origin new_branch:main` 命令。
+3. 合并分支时需要注意本地和远程分支的同步状态。在取消镜像设置后，本地分支与远程分支不再保持完全同步，需要手动同步到远程分支才能进行合并操作。建议在进行合并操作前，先使用 `git fetch` 命令将远程分支的最新代码同步到本地，并确保本地分支与远程分支保持同步。
+
+总的来说，在取消镜像设置后，Git 命令的使用方法与普通 Git 仓库基本一致，只需要注意以上几点即可。
+
+
+
+## 问题9： get 请求的 url有特殊字符[] {}等 导致的400错误
+
+
+
+***解决办法***
+
+![image-20230330150540580](https://fastly.jsdelivr.net/gh/laoWuLog/blogImage@main/img/image-20230330150540580.png)
+
+使用axios时,可以使用拦截器对请求的url进行encodeURIComponent 处理
+
+```
+// 添加请求拦截器
+instance.interceptors.request.use(
+  config => {
+    // ....
+
+    // 对 get 请求的 url 进行 encodeURIComponent 处理，修复特殊字符[] {} 导致的400错误
+    if (config.method === 'get') {
+      let url = config.url;
+      if (config.params) {
+        const params = config.params;
+        let keys = Object.keys(params).filter(key => params[key] !== null && params[key] !== undefined).reduce((acc, key) => ({ ...acc, [key]: params[key] }), {})
+        if (url.indexOf("?") > 0) {
+          Object.keys(keys).map((key, index) => {
+            if (!index && (/&$/.test(url))) {
+              url += `${key}=${encodeURIComponent(keys[key])}`
+            } else {
+              url += `&${key}=${encodeURIComponent(keys[key])}`
+            }
+          })
+        } else {
+          Object.keys(keys).map((key, index) => {
+            url += `${!index ? '?' : '&'}${key}=${encodeURIComponent(keys[key])}`
+          })
+        }
+        config.params = {}
+      }
+      config.url = url;
+    }
+
+    return config
+  },
+  error => Promise.error(error))
+```
+
