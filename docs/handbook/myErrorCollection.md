@@ -205,7 +205,7 @@ Autofocus [processing](https://so.csdn.net/so/search?q=processing&spm=1001.2101.
 
 <a-input v-model="inputConten" class="input-content" placeholder="" id="wrapperInput"/>
 
-```
+```javascript
 this.$nextTick(() => {
 
 ​    let userName = document.getElementById('wrapperInput')
@@ -234,7 +234,7 @@ qrcode在页面生成二维码时，会生成一个[canvas](https://so.csdn.net/
 
 手动将canvas隐藏，获取生成的链接拼到图片里面。
 
-```
+```javascript
 <!--用于存放canvas，隐藏-->
 <div id="QRCodeNone" style="width:54%;height:200px;margin:8% 0 8% 23%;display:none;">
 </div>
@@ -325,7 +325,7 @@ git clone --no-hardlinks <远程仓库地址> <本地目录>
 
 使用axios时,可以使用拦截器对请求的url进行encodeURIComponent 处理
 
-```
+```javascript
 // 添加请求拦截器
 instance.interceptors.request.use(
   config => {

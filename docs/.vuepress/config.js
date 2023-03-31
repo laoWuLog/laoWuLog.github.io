@@ -44,17 +44,18 @@ module.exports = {
     [
       'ribbon', // 添加美丽的丝带！
       {
-         size: 70, // width of the ribbon, default: 90
-         opacity: 0.1, // opacity of the ribbon, default: 0.3
-         zIndex: -1, // z-index property of the background, default: -1
+        size: 70, // width of the ribbon, default: 90
+        opacity: 0.1, // opacity of the ribbon, default: 0.3
+        zIndex: -1, // z-index property of the background, default: -1
       },
-   ],
+    ],
     [
       'medium-zoom', // 图片放大
       {
         margin: 16
       },
-   ],
+    ],
+    ['vuepress-plugin-code-copy'] //支持将代码块复制到剪贴板
   ],
   themeConfig: {
     author: "老吴",
@@ -63,8 +64,8 @@ module.exports = {
     subSidebar: 'auto',
     type: "blog",
     lastUpdated: '上次更新', // string | boolean
-     // 密钥
-     keyPage: {
+    // 密钥
+    keyPage: {
       keys: ['202cb962ac59075b964b07152d234b70'], // 1.3.0 版本后需要设置为密文
       color: '#42b983', // 登录页动画球的颜色
       lineColor: '#42b983' // 登录页动画线的颜色
