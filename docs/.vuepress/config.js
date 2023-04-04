@@ -55,6 +55,12 @@ module.exports = {
         margin: 16
       },
     ],
+    [
+      '@vuepress-reco/vuepress-plugin-kan-ban-niang',
+      {
+        theme: ['blackCat', 'whiteCat', 'haru1', 'haru2', 'haruto', 'koharu', 'izumi', 'shizuku', 'wanko', 'miku', 'z16']
+      }
+    ],
     ['vuepress-plugin-code-copy'] //支持将代码块复制到剪贴板
   ],
   themeConfig: {
@@ -63,6 +69,8 @@ module.exports = {
     authorAvatar: "https://raw.githubusercontent.com/laoWuLog/blogImage/main/img/home.jpg",
     subSidebar: 'auto',
     type: "blog",
+    mode: 'dark', // 默认 auto，auto 跟随系统，dark 暗色模式，light 亮色模式
+    modePicker: true, // 默认 true，false 不显示模式调节按钮，true 则显示
     lastUpdated: '上次更新', // string | boolean
     // 密钥
     keyPage: {

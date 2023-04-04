@@ -1,6 +1,10 @@
 ---
 title: 问题收录
 date: '2023-03-22'
+categories:
+  - 前端
+tags:
+  - person
 ---
 
 
