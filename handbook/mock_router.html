@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>如何使用mockjs模拟登录接口登录系统并使用Vue Router的守卫来管理路由权限？ | 个人播客</title>
+    <meta name="generator" content="VuePress 1.9.9">
+    
+    <meta name="description" content="This is my personal blog">
+    
+    <link rel="preload" href="/assets/css/0.styles.ceb44ed2.css" as="style"><link rel="preload" href="/assets/js/app.115c3c6d.js" as="script"><link rel="preload" href="/assets/js/3.8a2bc47f.js" as="script"><link rel="preload" href="/assets/js/1.6ac22a48.js" as="script"><link rel="preload" href="/assets/js/16.5d3b6402.js" as="script"><link rel="prefetch" href="/assets/js/10.6a9ff4e5.js"><link rel="prefetch" href="/assets/js/11.b4bb2c71.js"><link rel="prefetch" href="/assets/js/12.1962aad9.js"><link rel="prefetch" href="/assets/js/13.c4b5fe60.js"><link rel="prefetch" href="/assets/js/14.1c97b964.js"><link rel="prefetch" href="/assets/js/15.18ff4899.js"><link rel="prefetch" href="/assets/js/17.019faf5b.js"><link rel="prefetch" href="/assets/js/18.8798a110.js"><link rel="prefetch" href="/assets/js/19.ab57a688.js"><link rel="prefetch" href="/assets/js/4.fe2ebad3.js"><link rel="prefetch" href="/assets/js/5.f8d9bdfd.js"><link rel="prefetch" href="/assets/js/6.2d6a1358.js"><link rel="prefetch" href="/assets/js/7.c7f75e1e.js"><link rel="prefetch" href="/assets/js/8.22b2d33a.js"><link rel="prefetch" href="/assets/js/9.dac40322.js">
+    <link rel="stylesheet" href="/assets/css/0.styles.ceb44ed2.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container no-sidebar" data-v-7dd95ae2><div data-v-7dd95ae2><div class="password-shadow password-wrapper-out" style="display:none;" data-v-59e6cb88 data-v-7dd95ae2 data-v-7dd95ae2><h3 class="title" data-v-59e6cb88>个人播客</h3> <p class="description" data-v-59e6cb88>This is my personal blog</p> <label id="box" class="inputBox" data-v-59e6cb88><input type="password" value="" data-v-59e6cb88> <span data-v-59e6cb88>Konck! Knock!</span> <button data-v-59e6cb88>OK</button></label> <div class="footer" data-v-59e6cb88><span data-v-59e6cb88><i class="iconfont reco-theme" data-v-59e6cb88></i> <a target="blank" href="https://vuepress-theme-reco.recoluan.com" data-v-59e6cb88>vuePress-theme-reco</a></span> <span data-v-59e6cb88><i class="iconfont reco-copyright" data-v-59e6cb88></i> <a data-v-59e6cb88><span data-v-59e6cb88>老吴</span>
+          
+        <!---->
+        2023
+      </a></span></div></div> <div class="hide" data-v-7dd95ae2><header class="navbar" data-v-7dd95ae2><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/" class="home-link router-link-active"><img src="https://raw.githubusercontent.com/laoWuLog/blogImage/main/img/home.jpg" alt="个人播客" class="logo"> <span class="site-name">个人播客</span></a> <div class="links"><div class="color-picker"><a class="color-button"><i class="iconfont reco-color"></i></a> <div class="color-picker-menu" style="display:none;"><div class="mode-options"><h4 class="title">Choose mode</h4> <ul class="color-mode-options"><li class="dark">dark</li><li class="auto active">auto</li><li class="light">light</li></ul></div></div></div> <div class="search-box"><i class="iconfont reco-search"></i> <input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/" class="nav-link"><i class="undefined"></i>
+  首页
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title"><i class="iconfont reco-category"></i>
+      博客
+    </span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/categories/前端/" class="nav-link"><i class="undefined"></i>
+  前端
+</a></li></ul></div></div><div class="nav-item"><a href="/tag/" class="nav-link"><i class="iconfont reco-tag"></i>
+  Tag
+</a></div><div class="nav-item"><a href="/timeline/" class="nav-link"><i class="iconfont reco-date"></i>
+  时间轴
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title"><i class="undefined"></i>
+      老吴的博客
+    </span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="https://github.com/laoWuLog/laoWuLog.github.io" target="_blank" rel="noopener noreferrer" class="nav-link external"><i class="undefined"></i>
+  Github
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li></ul></div></div> <!----></nav></div></header> <div class="sidebar-mask" data-v-7dd95ae2></div> <aside class="sidebar" data-v-7dd95ae2><div class="personal-info-wrapper" data-v-1fad0c41 data-v-7dd95ae2><img src="https://raw.githubusercontent.com/laoWuLog/blogImage/main/img/home.jpg" alt="author-avatar" class="personal-img" data-v-1fad0c41> <h3 class="name" data-v-1fad0c41>
+    老吴
+  </h3> <div class="num" data-v-1fad0c41><div data-v-1fad0c41><h3 data-v-1fad0c41>9</h3> <h6 data-v-1fad0c41>文章</h6></div> <div data-v-1fad0c41><h3 data-v-1fad0c41>6</h3> <h6 data-v-1fad0c41>标签</h6></div></div> <ul class="social-links" data-v-1fad0c41></ul> <hr data-v-1fad0c41></div> <nav class="nav-links"><div class="nav-item"><a href="/" class="nav-link"><i class="undefined"></i>
+  首页
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title"><i class="iconfont reco-category"></i>
+      博客
+    </span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/categories/前端/" class="nav-link"><i class="undefined"></i>
+  前端
+</a></li></ul></div></div><div class="nav-item"><a href="/tag/" class="nav-link"><i class="iconfont reco-tag"></i>
+  Tag
+</a></div><div class="nav-item"><a href="/timeline/" class="nav-link"><i class="iconfont reco-date"></i>
+  时间轴
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title"><i class="undefined"></i>
+      老吴的博客
+    </span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="https://github.com/laoWuLog/laoWuLog.github.io" target="_blank" rel="noopener noreferrer" class="nav-link external"><i class="undefined"></i>
+  Github
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li></ul></div></div> <!----></nav> <!----> </aside> <div class="password-shadow password-wrapper-in" style="display:none;" data-v-59e6cb88 data-v-7dd95ae2><h3 class="title" data-v-59e6cb88>如何使用mockjs模拟登录接口登录系统并使用Vue Router的守卫来管理路由权限？</h3> <!----> <label id="box" class="inputBox" data-v-59e6cb88><input type="password" value="" data-v-59e6cb88> <span data-v-59e6cb88>Konck! Knock!</span> <button data-v-59e6cb88>OK</button></label> <div class="footer" data-v-59e6cb88><span data-v-59e6cb88><i class="iconfont reco-theme" data-v-59e6cb88></i> <a target="blank" href="https://vuepress-theme-reco.recoluan.com" data-v-59e6cb88>vuePress-theme-reco</a></span> <span data-v-59e6cb88><i class="iconfont reco-copyright" data-v-59e6cb88></i> <a data-v-59e6cb88><span data-v-59e6cb88>老吴</span>
+          
+        <!---->
+        2023
+      </a></span></div></div> <div data-v-7dd95ae2><div data-v-7dd95ae2><main class="page"><section style="display:;"><div class="page-title"><h1 class="title">如何使用mockjs模拟登录接口登录系统并使用Vue Router的守卫来管理路由权限？</h1> <div data-v-8a445198><i class="iconfont reco-account" data-v-8a445198><span data-v-8a445198>老吴</span></i> <i class="iconfont reco-date" data-v-8a445198><span data-v-8a445198>2023/3/31</span></i> <!----> <i class="tags iconfont reco-tag" data-v-8a445198><span class="tag-item" data-v-8a445198>Vue</span></i></div></div> <div class="theme-reco-content content__default"><h2 id="如何使用mockjs模拟登录接口登录系统并使用vue-router的守卫来管理路由权限"><a href="#如何使用mockjs模拟登录接口登录系统并使用vue-router的守卫来管理路由权限" class="header-anchor">#</a> 如何使用mockjs模拟登录接口登录系统并使用Vue Router的守卫来管理路由权限？</h2> <h3 id="mock安装"><a href="#mock安装" class="header-anchor">#</a> mock安装</h3> <p>为了使用mockjs模拟登录接口登录系统，我们可以在Vue项目中安装mockjs：</p> <div class="language-javascript extra-class"><pre class="language-javascript"><code>npm install mockjs <span class="token operator">--</span>save<span class="token operator">-</span>dev
+</code></pre></div><h3 id="mock配置"><a href="#mock配置" class="header-anchor">#</a> mock配置</h3> <p>然后在<code>src/mock</code>目录下创建一个<code>index.js</code>文件，该文件将用于模拟接口并导出配置对象。以下是一个示例配置：</p> <div class="language-javascript extra-class"><pre class="language-javascript"><code><span class="token comment">// src/mock/index.js</span>
+<span class="token keyword">import</span> Mock <span class="token keyword">from</span> <span class="token string">'mockjs'</span>
+
+<span class="token keyword">const</span> login <span class="token operator">=</span> <span class="token punctuation">{</span>
+  <span class="token string-property property">'GET /api/login'</span><span class="token operator">:</span> <span class="token punctuation">(</span><span class="token parameter">req<span class="token punctuation">,</span> res</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+    <span class="token keyword">const</span> <span class="token punctuation">{</span> username<span class="token punctuation">,</span> password <span class="token punctuation">}</span> <span class="token operator">=</span> req<span class="token punctuation">.</span>query
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>username <span class="token operator">===</span> <span class="token string">'admin'</span> <span class="token operator">&amp;&amp;</span> password <span class="token operator">===</span> <span class="token string">'admin'</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      <span class="token keyword">return</span> res<span class="token punctuation">.</span><span class="token function">send</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+        <span class="token literal-property property">code</span><span class="token operator">:</span> <span class="token number">0</span><span class="token punctuation">,</span>
+        <span class="token literal-property property">message</span><span class="token operator">:</span> <span class="token string">'登录成功'</span><span class="token punctuation">,</span>
+        <span class="token literal-property property">data</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+          <span class="token literal-property property">username</span><span class="token operator">:</span> <span class="token string">'admin'</span><span class="token punctuation">,</span>
+          <span class="token literal-property property">role</span><span class="token operator">:</span> <span class="token string">'admin'</span><span class="token punctuation">,</span>
+          <span class="token literal-property property">token</span><span class="token operator">:</span> <span class="token string">'admin_token'</span>
+        <span class="token punctuation">}</span>
+      <span class="token punctuation">}</span><span class="token punctuation">)</span>
+    <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token keyword">if</span> <span class="token punctuation">(</span>username <span class="token operator">===</span> <span class="token string">'superadmin'</span> <span class="token operator">&amp;&amp;</span> password <span class="token operator">===</span> <span class="token string">'superadmin'</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      <span class="token keyword">return</span> res<span class="token punctuation">.</span><span class="token function">send</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+        <span class="token literal-property property">code</span><span class="token operator">:</span> <span class="token number">0</span><span class="token punctuation">,</span>
+        <span class="token literal-property property">message</span><span class="token operator">:</span> <span class="token string">'登录成功'</span><span class="token punctuation">,</span>
+        <span class="token literal-property property">data</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+          <span class="token literal-property property">username</span><span class="token operator">:</span> <span class="token string">'superadmin'</span><span class="token punctuation">,</span>
+          <span class="token literal-property property">role</span><span class="token operator">:</span> <span class="token string">'superadmin'</span><span class="token punctuation">,</span>
+          <span class="token literal-property property">token</span><span class="token operator">:</span> <span class="token string">'superadmin_token'</span>
+        <span class="token punctuation">}</span>
+      <span class="token punctuation">}</span><span class="token punctuation">)</span>
+    <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>
+      <span class="token keyword">return</span> res<span class="token punctuation">.</span><span class="token function">send</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+        <span class="token literal-property property">code</span><span class="token operator">:</span> <span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">,</span>
+        <span class="token literal-property property">message</span><span class="token operator">:</span> <span class="token string">'账号或密码错误'</span>
+      <span class="token punctuation">}</span><span class="token punctuation">)</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+Mock<span class="token punctuation">.</span><span class="token function">setup</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+  <span class="token literal-property property">timeout</span><span class="token operator">:</span> <span class="token string">'200-600'</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span>
+
+Mock<span class="token punctuation">.</span><span class="token function">mock</span><span class="token punctuation">(</span>login<span class="token punctuation">)</span>
+</code></pre></div><p>在此配置中，我们定义了一个名为<code>login</code>的对象，该对象包含一个名为<code>GET /api/login</code>的路由和对应的处理函数。当客户端发出GET请求时，路由将使用查询参数中的用户名和密码来验证用户的身份，并返回相应的响应对象。如果登录成功，则响应对象将包含用户的账号信息和登录令牌。如果登录失败，则响应对象将包含错误代码和错误消息。</p> <h3 id="vuex配置"><a href="#vuex配置" class="header-anchor">#</a> vuex配置</h3> <p>现在，我们需要将该配置对象导入到我们的Vue项目中，并使用axios来发送登录请求。以下是一个示例登录函数：</p> <div class="language-javascript extra-class"><pre class="language-javascript"><code><span class="token comment">// src/api/index.js</span>
+<span class="token keyword">import</span> axios <span class="token keyword">from</span> <span class="token string">'axios'</span>
+
+<span class="token keyword">const</span> request <span class="token operator">=</span> axios<span class="token punctuation">.</span><span class="token function">create</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+  <span class="token literal-property property">baseURL</span><span class="token operator">:</span> <span class="token string">'/api'</span><span class="token punctuation">,</span>
+  <span class="token literal-property property">timeout</span><span class="token operator">:</span> <span class="token number">5000</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span>
+
+<span class="token keyword">export</span> <span class="token keyword">function</span> <span class="token function">login</span><span class="token punctuation">(</span><span class="token parameter">username<span class="token punctuation">,</span> password</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">return</span> request<span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span><span class="token string">'/login'</span><span class="token punctuation">,</span> <span class="token punctuation">{</span> <span class="token literal-property property">params</span><span class="token operator">:</span> <span class="token punctuation">{</span> username<span class="token punctuation">,</span> password <span class="token punctuation">}</span> <span class="token punctuation">}</span><span class="token punctuation">)</span>
+    <span class="token punctuation">.</span><span class="token function">then</span><span class="token punctuation">(</span><span class="token parameter">response</span> <span class="token operator">=&gt;</span> response<span class="token punctuation">.</span>data<span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+</code></pre></div><p>在此示例中，我们定义了一个名为<code>request</code>的axios实例，并将其配置为基本URL为<code>/api</code>，超时时间为5000ms。我们还定义了一个名为<code>login</code>的函数，该函数接受用户名和密码作为参数，并使用<code>request</code>实例来发送GET请求。该函数将响应对象中的数据属性返回给调用方。</p> <div class="language-javascript extra-class"><pre class="language-javascript"><code><span class="token comment">// store/modules/user.js</span>
+<span class="token keyword">const</span> state <span class="token operator">=</span> <span class="token punctuation">{</span>
+  <span class="token literal-property property">username</span><span class="token operator">:</span> <span class="token string">''</span><span class="token punctuation">,</span>
+  <span class="token literal-property property">role</span><span class="token operator">:</span> <span class="token string">''</span><span class="token punctuation">,</span>
+  <span class="token literal-property property">token</span><span class="token operator">:</span> <span class="token string">''</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">const</span> mutations <span class="token operator">=</span> <span class="token punctuation">{</span>
+  <span class="token function">login</span><span class="token punctuation">(</span><span class="token parameter">state<span class="token punctuation">,</span> payload</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    state<span class="token punctuation">.</span>username <span class="token operator">=</span> payload<span class="token punctuation">.</span>username
+    state<span class="token punctuation">.</span>role <span class="token operator">=</span> payload<span class="token punctuation">.</span>role
+    state<span class="token punctuation">.</span>token <span class="token operator">=</span> payload<span class="token punctuation">.</span>token
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  <span class="token function">logout</span><span class="token punctuation">(</span><span class="token parameter">state</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    state<span class="token punctuation">.</span>username <span class="token operator">=</span> <span class="token string">''</span>
+    state<span class="token punctuation">.</span>role <span class="token operator">=</span> <span class="token string">''</span>
+    state<span class="token punctuation">.</span>token <span class="token operator">=</span> <span class="token string">''</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">const</span> actions <span class="token operator">=</span> <span class="token punctuation">{</span>
+  <span class="token function">login</span><span class="token punctuation">(</span><span class="token parameter"><span class="token punctuation">{</span> commit <span class="token punctuation">}</span><span class="token punctuation">,</span> payload</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token comment">// 发送登录请求，并在成功时提交mutation</span>
+    <span class="token keyword">return</span> <span class="token keyword">new</span> <span class="token class-name">Promise</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token parameter">resolve<span class="token punctuation">,</span> reject</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+      axios<span class="token punctuation">.</span><span class="token function">post</span><span class="token punctuation">(</span><span class="token string">'/api/login'</span><span class="token punctuation">,</span> payload<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">then</span><span class="token punctuation">(</span><span class="token parameter">res</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>res<span class="token punctuation">.</span>data<span class="token punctuation">.</span>code <span class="token operator">===</span> <span class="token number">200</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+          <span class="token function">commit</span><span class="token punctuation">(</span><span class="token string">'login'</span><span class="token punctuation">,</span> res<span class="token punctuation">.</span>data<span class="token punctuation">.</span>data<span class="token punctuation">)</span>
+          <span class="token function">resolve</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+        <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>
+          <span class="token function">reject</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">Error</span><span class="token punctuation">(</span>res<span class="token punctuation">.</span>data<span class="token punctuation">.</span>message<span class="token punctuation">)</span><span class="token punctuation">)</span>
+        <span class="token punctuation">}</span>
+      <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">catch</span><span class="token punctuation">(</span><span class="token parameter">err</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+        <span class="token function">reject</span><span class="token punctuation">(</span>err<span class="token punctuation">)</span>
+      <span class="token punctuation">}</span><span class="token punctuation">)</span>
+    <span class="token punctuation">}</span><span class="token punctuation">)</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  <span class="token function">logout</span><span class="token punctuation">(</span><span class="token parameter"><span class="token punctuation">{</span> commit <span class="token punctuation">}</span></span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token function">commit</span><span class="token punctuation">(</span><span class="token string">'logout'</span><span class="token punctuation">)</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">export</span> <span class="token keyword">default</span> <span class="token punctuation">{</span>
+  <span class="token literal-property property">namespaced</span><span class="token operator">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
+  state<span class="token punctuation">,</span>
+  mutations<span class="token punctuation">,</span>
+  actions
+<span class="token punctuation">}</span>
+</code></pre></div><p>在此示例中，我们定义了一个名为<code>state</code>的状态对象，该对象包含三个属性：<code>username</code>，<code>role</code>和<code>token</code>。我们还定义了一个名为<code>login</code>的mutation，该mutation将接受来自登录请求的用户账号信息，并将其存储在<code>state</code>对象中。最后，我们还定义了一个名为<code>login</code>的action，该action将使用我们在前面定义的<code>login</code>函数来发送登录请求，并在登录成功时调用<code>login</code>mutation。 现在，我们需要使用Vue Router的守卫来管理路由权限。以下是一个示例守卫：</p> <h3 id="路由配置"><a href="#路由配置" class="header-anchor">#</a> 路由配置</h3> <div class="language-javascript extra-class"><pre class="language-javascript"><code>在此示例中，我们定义了一个名为<span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">state</span><span class="token template-punctuation string">`</span></span>的状态对象，该对象包含三个属性：<span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">username</span><span class="token template-punctuation string">`</span></span>，<span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">role</span><span class="token template-punctuation string">`</span></span>和<span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">token</span><span class="token template-punctuation string">`</span></span>。我们还定义了一个名为<span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">login</span><span class="token template-punctuation string">`</span></span>的mutation，该mutation将接受来自登录请求的用户账号信息，并将其存储在<span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">state</span><span class="token template-punctuation string">`</span></span>对象中。最后，我们还定义了一个名为<span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">login</span><span class="token template-punctuation string">`</span></span>的action，该action将使用我们在前面定义的<span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">login</span><span class="token template-punctuation string">`</span></span>函数来发送登录请求，并在登录成功时调用<span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">login</span><span class="token template-punctuation string">`</span></span>mutation。
+
+现在，我们需要使用Vue Router的守卫来管理路由权限。以下是一个示例守卫：
+
+​<span class="token template-string"><span class="token template-punctuation string">`</span><span class="token template-punctuation string">`</span></span>`
+<span class="token comment">// src/router/index.js</span>
+<span class="token keyword">import</span> Vue <span class="token keyword">from</span> <span class="token string">'vue'</span>
+<span class="token keyword">import</span> VueRouter <span class="token keyword">from</span> <span class="token string">'vue-router'</span>
+<span class="token keyword">import</span> store <span class="token keyword">from</span> <span class="token string">'@/store'</span>
+
+Vue<span class="token punctuation">.</span><span class="token function">use</span><span class="token punctuation">(</span>VueRouter<span class="token punctuation">)</span>
+
+<span class="token keyword">const</span> routes <span class="token operator">=</span> <span class="token punctuation">[</span>
+  <span class="token punctuation">{</span>
+    <span class="token literal-property property">path</span><span class="token operator">:</span> <span class="token string">'/'</span><span class="token punctuation">,</span>
+    <span class="token literal-property property">name</span><span class="token operator">:</span> <span class="token string">'Home'</span><span class="token punctuation">,</span>
+    <span class="token function-variable function">component</span><span class="token operator">:</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token keyword">import</span><span class="token punctuation">(</span><span class="token string">'@/views/Home.vue'</span><span class="token punctuation">)</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  <span class="token punctuation">{</span>
+    <span class="token literal-property property">path</span><span class="token operator">:</span> <span class="token string">'/about'</span><span class="token punctuation">,</span>
+    <span class="token literal-property property">name</span><span class="token operator">:</span> <span class="token string">'About'</span><span class="token punctuation">,</span>
+    <span class="token function-variable function">component</span><span class="token operator">:</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token keyword">import</span><span class="token punctuation">(</span><span class="token string">'@/views/About.vue'</span><span class="token punctuation">)</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  <span class="token punctuation">{</span>
+    <span class="token literal-property property">path</span><span class="token operator">:</span> <span class="token string">'/admin'</span><span class="token punctuation">,</span>
+    <span class="token literal-property property">name</span><span class="token operator">:</span> <span class="token string">'Admin'</span><span class="token punctuation">,</span>
+    <span class="token function-variable function">component</span><span class="token operator">:</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token keyword">import</span><span class="token punctuation">(</span><span class="token string">'@/views/Admin.vue'</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token literal-property property">meta</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+      <span class="token literal-property property">requiresAuth</span><span class="token operator">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
+      <span class="token literal-property property">roles</span><span class="token operator">:</span> <span class="token punctuation">[</span><span class="token string">'admin'</span><span class="token punctuation">,</span> <span class="token string">'superadmin'</span><span class="token punctuation">]</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">]</span>
+
+<span class="token keyword">const</span> router <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">VueRouter</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+  <span class="token literal-property property">mode</span><span class="token operator">:</span> <span class="token string">'history'</span><span class="token punctuation">,</span>
+  <span class="token literal-property property">base</span><span class="token operator">:</span> process<span class="token punctuation">.</span>env<span class="token punctuation">.</span><span class="token constant">BASE_URL</span><span class="token punctuation">,</span>
+  routes
+<span class="token punctuation">}</span><span class="token punctuation">)</span>
+
+router<span class="token punctuation">.</span><span class="token function">beforeEach</span><span class="token punctuation">(</span><span class="token keyword">async</span> <span class="token punctuation">(</span><span class="token parameter">to<span class="token punctuation">,</span> from<span class="token punctuation">,</span> next</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+  <span class="token keyword">const</span> <span class="token punctuation">{</span> requiresAuth<span class="token punctuation">,</span> roles <span class="token punctuation">}</span> <span class="token operator">=</span> to<span class="token punctuation">.</span>meta
+  <span class="token keyword">const</span> <span class="token punctuation">{</span> username<span class="token punctuation">,</span> role <span class="token punctuation">}</span> <span class="token operator">=</span> store<span class="token punctuation">.</span>state<span class="token punctuation">.</span>user
+
+  <span class="token keyword">if</span> <span class="token punctuation">(</span>requiresAuth <span class="token operator">&amp;&amp;</span> <span class="token operator">!</span>username<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token function">next</span><span class="token punctuation">(</span><span class="token punctuation">{</span> <span class="token literal-property property">path</span><span class="token operator">:</span> <span class="token string">'/login'</span><span class="token punctuation">,</span> <span class="token literal-property property">query</span><span class="token operator">:</span> <span class="token punctuation">{</span> <span class="token literal-property property">redirect</span><span class="token operator">:</span> to<span class="token punctuation">.</span>fullPath <span class="token punctuation">}</span><span class="token punctuation">}</span><span class="token punctuation">)</span>
+  <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token keyword">if</span> <span class="token punctuation">(</span>requiresAuth <span class="token operator">&amp;&amp;</span> roles <span class="token operator">&amp;&amp;</span> <span class="token operator">!</span>roles<span class="token punctuation">.</span><span class="token function">includes</span><span class="token punctuation">(</span>role<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token function">next</span><span class="token punctuation">(</span><span class="token punctuation">{</span> <span class="token literal-property property">path</span><span class="token operator">:</span> <span class="token string">'/401'</span> <span class="token punctuation">}</span><span class="token punctuation">)</span>
+  <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>
+    <span class="token function">next</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span>
+
+<span class="token keyword">export</span> <span class="token keyword">default</span> router
+</code></pre></div><p>在此示例中，我们定义了三个路由：<code>Home</code>，<code>About</code>和<code>Admin</code>。<code>Admin</code>路由需要身份验证和角色为<code>admin</code>或<code>superadmin</code>才能访问。我们还定义了一个名为<code>router</code>的Vue Router实例，并在此实例中添加了一个名为<code>beforeEach</code>的全局前置守卫。该守卫将检查路由的<code>meta</code>字段，如果<code>requiresAuth</code>为<code>true</code>，并且当前用户没有登录，则将用户重定向到登录页面。如果用户已登录，但角色不在<code>roles</code>数组中，则将用户重定向到401页面。否则，守卫将允许用户访问路由。</p> <h3 id="_401错误权限页面"><a href="#_401错误权限页面" class="header-anchor">#</a> 401错误权限页面</h3> <p>最后，我们需要将401页面添加到我们的应用程序中。以下是一个示例401页面：</p> <p>以下是一个简单的示例401页面的代码，包括一个<code>&lt;h1&gt;</code>标签、一条错误消息和一个回到首页的按钮。</p> <div class="language-html extra-class"><pre class="language-html"><code><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>template</span><span class="token punctuation">&gt;</span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>unauthorized<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>h1</span><span class="token punctuation">&gt;</span></span>401<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>h1</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>p</span><span class="token punctuation">&gt;</span></span>您没有访问该页面的权限<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>p</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>button</span> <span class="token attr-name">@click</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>redirectToHome<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span>返回首页<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>button</span><span class="token punctuation">&gt;</span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>template</span><span class="token punctuation">&gt;</span></span>
+
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span><span class="token punctuation">&gt;</span></span><span class="token script"><span class="token language-javascript">
+<span class="token keyword">export</span> <span class="token keyword">default</span> <span class="token punctuation">{</span>
+  <span class="token literal-property property">methods</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+    <span class="token function">redirectToHome</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      <span class="token function">setTimeout</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+        <span class="token keyword">this</span><span class="token punctuation">.</span>$router<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span><span class="token string">'/'</span><span class="token punctuation">)</span>
+      <span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token number">3000</span><span class="token punctuation">)</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">&gt;</span></span>
+
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>style</span> <span class="token attr-name">scoped</span><span class="token punctuation">&gt;</span></span><span class="token style"><span class="token language-css">
+<span class="token selector">.unauthorized</span> <span class="token punctuation">{</span>
+  <span class="token property">text-align</span><span class="token punctuation">:</span> center<span class="token punctuation">;</span>
+  <span class="token property">margin-top</span><span class="token punctuation">:</span> 50px<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token selector">h1</span> <span class="token punctuation">{</span>
+  <span class="token property">font-size</span><span class="token punctuation">:</span> 5em<span class="token punctuation">;</span>
+  <span class="token property">color</span><span class="token punctuation">:</span> #f44336<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token selector">p</span> <span class="token punctuation">{</span>
+  <span class="token property">font-size</span><span class="token punctuation">:</span> 1.5em<span class="token punctuation">;</span>
+  <span class="token property">color</span><span class="token punctuation">:</span> #333<span class="token punctuation">;</span>
+  <span class="token property">margin-bottom</span><span class="token punctuation">:</span> 20px<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token selector">button</span> <span class="token punctuation">{</span>
+  <span class="token property">font-size</span><span class="token punctuation">:</span> 1.2em<span class="token punctuation">;</span>
+  <span class="token property">padding</span><span class="token punctuation">:</span> 10px 20px<span class="token punctuation">;</span>
+  <span class="token property">background-color</span><span class="token punctuation">:</span> #f44336<span class="token punctuation">;</span>
+  <span class="token property">color</span><span class="token punctuation">:</span> #fff<span class="token punctuation">;</span>
+  <span class="token property">border</span><span class="token punctuation">:</span> none<span class="token punctuation">;</span>
+  <span class="token property">border-radius</span><span class="token punctuation">:</span> 5px<span class="token punctuation">;</span>
+  <span class="token property">cursor</span><span class="token punctuation">:</span> pointer<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>style</span><span class="token punctuation">&gt;</span></span>
+</code></pre></div><p>在此示例中，我们定义了一个简单的样式，用于使页面看起来更美观。我们还在<code>&lt;script&gt;</code>块中定义了一个名为<code>redirectToHome</code>的方法，该方法将使用<code>setTimeout</code>函数模拟异步请求并在3秒后将用户重定向到首页。最后，我们将这个方法绑定到一个<code>&lt;button&gt;</code>标记上，当用户点击它时，它将执行重定向操作。</p> <h3 id="mock配置项"><a href="#mock配置项" class="header-anchor">#</a> mock配置项</h3> <p>在此示例中，我们定义了一个简单的<code>&lt;h1&gt;</code>标记和一个提示消息，告诉用户他们没有权限访问所请求的页面。我们还在<code>&lt;script&gt;</code>块中添加了一个名为<code>mounted</code>的生命周期钩子函数，该函数将使用<code>setTimeout</code>函数模拟异步请求并在3秒后将用户重定向到首页。</p> <p>最后，我们需要将我们的mock配置项添加到我们的应用程序中。以下是一个示例mock配置项：</p> <div class="language-javascript extra-class"><pre class="language-javascript"><code><span class="token comment">// src/mock/index.js</span>
+<span class="token keyword">import</span> Mock <span class="token keyword">from</span> <span class="token string">'mockjs'</span>
+
+<span class="token keyword">const</span> userDB <span class="token operator">=</span> <span class="token punctuation">[</span>
+  <span class="token punctuation">{</span> <span class="token literal-property property">username</span><span class="token operator">:</span> <span class="token string">'admin'</span><span class="token punctuation">,</span> <span class="token literal-property property">password</span><span class="token operator">:</span> <span class="token string">'admin'</span><span class="token punctuation">,</span> <span class="token literal-property property">role</span><span class="token operator">:</span> <span class="token string">'admin'</span><span class="token punctuation">,</span> <span class="token literal-property property">token</span><span class="token operator">:</span> <span class="token string">'admin-token'</span> <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  <span class="token punctuation">{</span> <span class="token literal-property property">username</span><span class="token operator">:</span> <span class="token string">'superadmin'</span><span class="token punctuation">,</span> <span class="token literal-property property">password</span><span class="token operator">:</span> <span class="token string">'superadmin'</span><span class="token punctuation">,</span> <span class="token literal-property property">role</span><span class="token operator">:</span> <span class="token string">'superadmin'</span><span class="token punctuation">,</span> <span class="token literal-property property">token</span><span class="token operator">:</span> <span class="token string">'superadmin-token'</span> <span class="token punctuation">}</span>
+<span class="token punctuation">]</span>
+
+Mock<span class="token punctuation">.</span><span class="token function">mock</span><span class="token punctuation">(</span><span class="token string">'/api/login'</span><span class="token punctuation">,</span> <span class="token string">'post'</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token parameter"><span class="token punctuation">{</span> body <span class="token punctuation">}</span></span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+  <span class="token keyword">const</span> <span class="token punctuation">{</span> username<span class="token punctuation">,</span> password <span class="token punctuation">}</span> <span class="token operator">=</span> <span class="token constant">JSON</span><span class="token punctuation">.</span><span class="token function">parse</span><span class="token punctuation">(</span>body<span class="token punctuation">)</span>
+  <span class="token keyword">const</span> user <span class="token operator">=</span> userDB<span class="token punctuation">.</span><span class="token function">find</span><span class="token punctuation">(</span><span class="token parameter">u</span> <span class="token operator">=&gt;</span> u<span class="token punctuation">.</span>username <span class="token operator">===</span> username <span class="token operator">&amp;&amp;</span> u<span class="token punctuation">.</span>password <span class="token operator">===</span> password<span class="token punctuation">)</span>
+
+  <span class="token keyword">if</span> <span class="token punctuation">(</span>user<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">return</span> <span class="token punctuation">{</span>
+      <span class="token literal-property property">code</span><span class="token operator">:</span> <span class="token number">0</span><span class="token punctuation">,</span>
+      <span class="token literal-property property">message</span><span class="token operator">:</span> <span class="token string">'登录成功'</span><span class="token punctuation">,</span>
+      <span class="token literal-property property">data</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+        <span class="token literal-property property">username</span><span class="token operator">:</span> user<span class="token punctuation">.</span>username<span class="token punctuation">,</span>
+        <span class="token literal-property property">role</span><span class="token operator">:</span> user<span class="token punctuation">.</span>role<span class="token punctuation">,</span>
+        <span class="token literal-property property">token</span><span class="token operator">:</span> user<span class="token punctuation">.</span>token
+      <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>
+    <span class="token keyword">return</span> <span class="token punctuation">{</span>
+      <span class="token literal-property property">code</span><span class="token operator">:</span> <span class="token number">1</span><span class="token punctuation">,</span>
+      <span class="token literal-property property">message</span><span class="token operator">:</span> <span class="token string">'账号或密码错误'</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span>
+</code></pre></div><p>在此示例中，我们使用Mock.js来模拟登录接口。我们定义了一个名为<code>userDB</code>的用户数据库数组，该数组包含两个用户账号信息：<code>admin</code>和<code>superadmin</code>。我们还使用<code>Mock.mock</code>函数来定义一个名为<code>/api/login</code>的POST请求，并使用函数参数来解析请求体。如果用户账号信息正确，我们将返回一个响应对象，其中包含用户账号信息、角色和一个用于身份验证的token。否则，我们将返回一个错误响应对象，其中包含一个错误消息。</p> <p>以上是一个简单的示例，演示了如何使用Mock.js模拟登录接口并使用Vue Router守卫管理路由权限。这个示例可能不完美，但它可以为您提供一个思路来开始构建您自己的应用程序。</p></div></section> <footer class="page-edit"><!----> <div class="last-updated"><span class="prefix">上次更新: </span> <span class="time">2023/3/31 下午4:25:16</span></div></footer> <!----> <div class="comments-wrapper"><!----></div></main></div> <!----></div> <ul class="sub-sidebar sub-sidebar-wrapper" style="width:12rem;" data-v-b57cc07c data-v-7dd95ae2><li class="level-2" data-v-b57cc07c><a href="/handbook/mock_router.html#如何使用mockjs模拟登录接口登录系统并使用vue-router的守卫来管理路由权限" class="sidebar-link reco-side-如何使用mockjs模拟登录接口登录系统并使用vue-router的守卫来管理路由权限" data-v-b57cc07c>如何使用mockjs模拟登录接口登录系统并使用Vue Router的守卫来管理路由权限？</a></li><li class="level-3" data-v-b57cc07c><a href="/handbook/mock_router.html#mock安装" class="sidebar-link reco-side-mock安装" data-v-b57cc07c>mock安装</a></li><li class="level-3" data-v-b57cc07c><a href="/handbook/mock_router.html#mock配置" class="sidebar-link reco-side-mock配置" data-v-b57cc07c>mock配置</a></li><li class="level-3" data-v-b57cc07c><a href="/handbook/mock_router.html#vuex配置" class="sidebar-link reco-side-vuex配置" data-v-b57cc07c>vuex配置</a></li><li class="level-3" data-v-b57cc07c><a href="/handbook/mock_router.html#路由配置" class="sidebar-link reco-side-路由配置" data-v-b57cc07c>路由配置</a></li><li class="level-3" data-v-b57cc07c><a href="/handbook/mock_router.html#_401错误权限页面" class="sidebar-link reco-side-_401错误权限页面" data-v-b57cc07c>401错误权限页面</a></li><li class="level-3" data-v-b57cc07c><a href="/handbook/mock_router.html#mock配置项" class="sidebar-link reco-side-mock配置项" data-v-b57cc07c>mock配置项</a></li></ul></div></div></div><div class="global-ui"><div class="back-to-ceiling" style="right:1rem;bottom:6rem;width:2.5rem;height:2.5rem;border-radius:.25rem;line-height:2.5rem;display:none;" data-v-c6073ba8 data-v-c6073ba8><svg t="1574745035067" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="5404" class="icon" data-v-c6073ba8><path d="M526.60727968 10.90185116a27.675 27.675 0 0 0-29.21455937 0c-131.36607665 82.28402758-218.69155461 228.01873535-218.69155402 394.07834331a462.20625001 462.20625001 0 0 0 5.36959153 69.94390903c1.00431239 6.55289093-0.34802892 13.13561351-3.76865779 18.80351572-32.63518765 54.11355614-51.75690182 118.55860487-51.7569018 187.94566865a371.06718723 371.06718723 0 0 0 11.50484808 91.98906777c6.53300375 25.50556257 41.68394495 28.14064038 52.69160883 4.22606766 17.37162448-37.73630017 42.14135425-72.50938081 72.80769204-103.21549295 2.18761121 3.04276886 4.15646224 6.24463696 6.40373557 9.22774369a1871.4375 1871.4375 0 0 0 140.04691725 5.34970492 1866.36093723 1866.36093723 0 0 0 140.04691723-5.34970492c2.24727335-2.98310674 4.21612437-6.18497483 6.3937923-9.2178004 30.66633723 30.70611158 55.4360664 65.4791928 72.80769147 103.21549355 11.00766384 23.91457269 46.15860503 21.27949489 52.69160879-4.22606768a371.15156223 371.15156223 0 0 0 11.514792-91.99901164c0-69.36717486-19.13165746-133.82216804-51.75690182-187.92578088-3.42062944-5.66790279-4.76302748-12.26056868-3.76865837-18.80351632a462.20625001 462.20625001 0 0 0 5.36959269-69.943909c-0.00994388-166.08943902-87.32547796-311.81420293-218.6915546-394.09823051zM605.93803103 357.87693858a93.93749974 93.93749974 0 1 1-187.89594924 6.1e-7 93.93749974 93.93749974 0 0 1 187.89594924-6.1e-7z" p-id="5405" data-v-c6073ba8></path><path d="M429.50777625 765.63860547C429.50777625 803.39355007 466.44236686 1000.39046097 512.00932183 1000.39046097c45.56695499 0 82.4922232-197.00623328 82.5015456-234.7518555 0-37.75494459-36.9345906-68.35043303-82.4922232-68.34111062-45.57627738-0.00932239-82.52019037 30.59548842-82.51086798 68.34111062z" p-id="5406" data-v-c6073ba8></path></svg></div><div class="Sakura" data-v-248d85d6><canvas id="canvas_sakura" style="z-index:-1;" data-v-248d85d6></canvas></div><canvas id="vuepress-canvas-cursor"></canvas><div></div><canvas id="vuepress-canvas-ribbon"></canvas><div class="kanbanniang" data-v-5775ee02><div class="banniang-container" style="display:;" data-v-5775ee02><div class="messageBox" style="right:68px;bottom:190px;display:none;" data-v-5775ee02>
+      欢迎来到 个人播客
+    </div> <div class="operation" style="right:90px;bottom:40px;display:;" data-v-5775ee02><i class="kbnfont kbn-ban-home ban-home" data-v-5775ee02></i> <i class="kbnfont kbn-ban-message message" data-v-5775ee02></i> <i class="kbnfont kbn-ban-close close" data-v-5775ee02></i> <a target="_blank" href="https://vuepress-theme-reco.recoluan.com/views/plugins/kanbanniang.html" data-v-5775ee02><i class="kbnfont kbn-ban-info info" data-v-5775ee02></i></a> <i class="kbnfont kbn-ban-theme skin" style="display:;" data-v-5775ee02></i></div> <canvas id="banniang" width="150" height="220" class="live2d" style="right:90px;bottom:-20px;opacity:0.9;" data-v-5775ee02></canvas></div> <div class="showBanNiang" style="display:none;" data-v-5775ee02>
+    看板娘
+  </div></div></div></div>
+    <script src="/assets/js/app.115c3c6d.js" defer></script><script src="/assets/js/3.8a2bc47f.js" defer></script><script src="/assets/js/1.6ac22a48.js" defer></script><script src="/assets/js/16.5d3b6402.js" defer></script>
+  </body>
+</html>
