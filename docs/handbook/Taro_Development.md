@@ -89,7 +89,7 @@ Require stack:
 
 ### 解决方案
 
-使用 nvm 安装/切换 node 版本,这里使用的是 node v 16.0.0, 切换版本后,重新安装下依赖,运行正常,没有报错,接下来就可以运行到相应平台了
+使用nvm安装/切换node版本,这里使用的是 node v 16.0.0, 切换版本后,重新安装下依赖,运行正常,没有报错,接下来就可以运行到相应平台了
 
 ```javascript
 PS E:\lw\advance\myApp> nvm ls
@@ -107,26 +107,28 @@ added 37 packages in 41s
 PS E:\lw\advance\myApp> npm run dev:weapp
 ```
 
-## 2. dev:weapp 时,微信开发工具预览出现警告,有 taro ui 有部分组件无法渲染
+## 2. dev:weapp时,微信开发工具预览出现警告,有taro ui有部分组件无法渲染
 
-### 报错信息:
+### 报错信息: 
+
+
 
 ```javascript
 VM946:22 WXMLRT_$gwx:./base.wxml:template:477:16: Template `tmpl_0_31` not found.
 [WXML Runtime warning] ./base.wxml
  Template `tmpl_0_31` not found.
-  475 |
+  475 | 
   476 | <template name="tmpl_6_container">
 > 477 |   <template is="{{xs.a(6, i.nn, l)}}" data="{{i:i,cid:6,l:xs.f(l,i.nn)}}" />
       |                ^
   478 | </template>
-  479 |
+  479 | 
   480 | <template name="tmpl_7_0">
 ```
 
 ### 解决方案
 
-找到 taro 的配置文件 config,找到 index.js,添加属性
+找到taro的配置文件config,找到index.js,添加属性
 
 ```javascript
  compiler: {
@@ -140,3 +142,4 @@ VM946:22 WXMLRT_$gwx:./base.wxml:template:477:16: Template `tmpl_0_31` not found
 // prebundle.enable 指定是否启用打包预编译功能。打包预编译可以提高应用启动速度，但也会增加打包时间，所以可以根据实际情况来开启或关闭。
 // prebundle.force 强制打包预编译功能，即使环境不支持也会进行尝试。一般来说不需要开启，除非有需要。
 ```
+

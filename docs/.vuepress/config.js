@@ -69,7 +69,7 @@ module.exports = {
     authorAvatar: "https://raw.githubusercontent.com/laoWuLog/blogImage/main/img/home.jpg",
     subSidebar: 'auto',
     type: "blog",
-    mode: 'dark', // 默认 auto，auto 跟随系统，dark 暗色模式，light 亮色模式
+    mode: 'auto', // 默认 auto，auto 跟随系统，dark 暗色模式，light 亮色模式
     modePicker: true, // 默认 true，false 不显示模式调节按钮，true 则显示
     lastUpdated: '上次更新', // string | boolean
     // 密钥
