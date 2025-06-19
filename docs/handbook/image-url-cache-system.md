@@ -1,6 +1,6 @@
 ---
 title: 图片URL缓存系统设计与实现
-date: 2024-01-01
+date: 2025-06-19
 sidebar: auto
 categories:
   - 技术分享
